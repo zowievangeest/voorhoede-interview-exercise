@@ -30,9 +30,11 @@
   "dependencies": {
     "core-js": "^2.6.5",
     "register-service-worker": "^1.6.2",
+    "tailwindcss": "^1.1.2",
     "vue": "^2.6.10",
     "vue-router": "^3.0.3",
-    "vuex": "^3.0.1"
+    "vuex": "^3.0.1",
+    "autoprefixer": "latest"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
@@ -93,11 +95,6 @@
         }
       }
     ]
-  },
-  "postcss": {
-    "plugins": {
-      "autoprefixer": {}
-    }
   },
   "browserslist": [
     "> 1%",
