@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>This is a homepage</h1>
+    <Navbar />
     <transition>
       <keep-alive>
         <router-view></router-view>
@@ -10,8 +10,10 @@
 </template>
 
 <script>
+import Navbar from "../components/navbar/Navbar";
 export default {
-  name: "home"
+  name: "home",
+  components: { Navbar }
 };
 </script>
 
