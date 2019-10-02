@@ -37,15 +37,18 @@
       </div>
 
       <p class="py-6 blog-body mt-6" v-html="blogPost.body"></p>
+      <BackToTop />
     </div>
   </div>
 </template>
 
 <script>
 import { mapGetters } from "vuex";
+import BackToTop from "../components/backtotop/BackToTop";
 
 export default {
   name: "BlogSingle",
+  components: { BackToTop },
   metaInfo: {
     title: "Blog Post",
     meta: [
