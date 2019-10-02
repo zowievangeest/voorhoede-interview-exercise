@@ -23,8 +23,8 @@ export const fetchAllPosts = async ({ commit }) => {
  */
 export const fetchPostBySlug = async ({ commit }, slug) => {
   try {
-    const { post } = await Vue.$http.get(`/posts/${slug}`);
-    commit(types.FETCH_POST_BY_SLUG, { post });
+    const { data } = await Vue.$http.get(`/posts/${slug}`);
+    commit(types.FETCH_POST_BY_SLUG, { data });
   } catch (e) {
     console.error(e);
   }

@@ -20,7 +20,7 @@ export default {
    * @param state
    * @param post
    */
-  [FETCH_POST_BY_SLUG](state, { post }) {
-    state.post = post;
+  [FETCH_POST_BY_SLUG](state, { data }) {
+    state.post = data;
   }
 };
