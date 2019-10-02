@@ -2,6 +2,8 @@
 
 After an interview with **[De Voorhoede](https://voorhoede.nl)**, I was given an exercise to get an idea of my resolving power and how I approach problems. This could also be used to check whether the code is of good quality and which choices were made during development of this exercise. An API was available for the exercise which I could determine myself. The techniques I used are described below in a list. I made the choice to use the RESTful api because I already have experience with this.
 
+![De Voorhoede interview exercise](https://res.cloudinary.com/zowie/image/upload/v1570057902/Github/Voorhoede/de-voorhoede-blog.png)
+
 
 # Techniques
 
