@@ -1,5 +1,5 @@
 <template>
-  <div class="container w-full md:max-w-3xl mx-auto pt-20" v-if="blogPost">
+  <div class="container w-full md:max-w-3xl mx-auto pt-20" v-if="post">
     <div class="w-full px-4 md:px-6 text-xl leading-normal">
       <div>
         <button
@@ -11,21 +11,21 @@
         <h1
           class="break-normal text-voorhoede-blue pt-12 pb-6 text-3xl md:text-4xl text-center"
         >
-          {{ blogPost.title }}
+          {{ post.title }}
         </h1>
         <p class="text-sm md:text-base font-normal text-gray-500">
           Gepubliceerd:
-          {{ $moment(blogPost.publishDate).format("DD MMMM YYYY") }}
+          {{ $moment(post.publishDate).format("DD MMMM YYYY") }}
           <ReadingTime
             class="float-right text-voorhoede-blue border-solid border-2 py-1 px-4 rounded-full border-voorhoede-blue"
-            :content="blogPost.body"
+            :content="post.body"
           />
         </p>
         <div
           class="flex w-full text-sm md:text-base font-normal mt-2 text-gray-500"
         >
           <div
-            v-for="(author, index) of blogPost.authors"
+            v-for="(author, index) of post.authors"
             v-bind:key="index"
             class="flex items-center"
           >
@@ -40,20 +40,18 @@
         </div>
       </div>
 
-      <p class="py-6 blog-body mt-6" v-html="blogPost.body"></p>
+      <p class="py-6 blog-body mt-6" v-html="post.body"></p>
       <BackToTop />
     </div>
   </div>
 </template>
 
 <script>
-import { mapGetters } from "vuex";
 import BackToTop from "../components/backtotop/BackToTop";
 import ReadingTime from "../components/readingtime/ReadingTime";
 
 export default {
   name: "BlogSingle",
-  components: { ReadingTime, BackToTop },
   metaInfo: {
     title: "Blog Post",
     meta: [
@@ -63,20 +61,25 @@ export default {
       }
     ]
   },
-  async mounted() {
-    const slug = this.$route.params.slug;
-    try {
-      await this.$store.dispatch("posts/fetchPostBySlug", slug);
-    } catch (e) {
-      console.error(e);
-    }
+  components: { ReadingTime, BackToTop },
+  data() {
+    return {
+      post: null
+    };
   },
-  computed: {
-    ...mapGetters({
-      blogPost: "posts/post"
-    })
+  mounted() {
+    this.fetchPostData();
   },
   methods: {
+    fetchPostData() {
+      const slug = this.$route.params.slug;
+
+      if (slug) {
+        this.$store.dispatch("posts/fetchPostBySlug", slug).then(() => {
+          this.post = this.$store.getters["posts/post"];
+        });
+      }
+    },
     back() {
       this.$router.go(-1);
     }
