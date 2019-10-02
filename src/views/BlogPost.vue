@@ -16,6 +16,10 @@
         <p class="text-sm md:text-base font-normal text-gray-500">
           Gepubliceerd:
           {{ $moment(blogPost.publishDate).format("DD MMMM YYYY") }}
+          <ReadingTime
+            class="float-right text-voorhoede-blue border-solid border-2 py-1 px-4 rounded-full border-voorhoede-blue"
+            :content="blogPost.body"
+          />
         </p>
         <div
           class="flex w-full text-sm md:text-base font-normal mt-2 text-gray-500"
@@ -45,10 +49,11 @@
 <script>
 import { mapGetters } from "vuex";
 import BackToTop from "../components/backtotop/BackToTop";
+import ReadingTime from "../components/readingtime/ReadingTime";
 
 export default {
   name: "BlogSingle",
-  components: { BackToTop },
+  components: { ReadingTime, BackToTop },
   metaInfo: {
     title: "Blog Post",
     meta: [
