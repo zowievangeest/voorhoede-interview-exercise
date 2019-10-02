@@ -1,5 +1,5 @@
 const Home = () => import("../views/Home");
-const About = () => import("../views/About");
+const Blog = () => import("../views/Blog");
 
 export default [
   {
@@ -8,9 +8,9 @@ export default [
     component: Home,
     children: [
       {
-        path: "about",
-        name: "about",
-        component: About
+        path: "blog",
+        name: "blog",
+        component: Blog
       }
     ]
   },
