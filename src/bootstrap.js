@@ -7,6 +7,8 @@
 import Vue from "vue";
 import "./plugins";
 import "@/assets/css/tailwind.css";
+import "../node_modules/nprogress/nprogress.css";
+import "@/assets/css/nprogress.css";
 
 Vue.config.debug = process.env.NODE_ENV !== "production";
 
