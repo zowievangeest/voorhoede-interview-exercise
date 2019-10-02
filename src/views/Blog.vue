@@ -61,6 +61,15 @@ import { mapGetters } from "vuex";
 
 export default {
   name: "blog",
+  metaInfo: {
+    title: "Blog",
+    meta: [
+      {
+        name: "description",
+        content: "De Voorhoede exercise blog."
+      }
+    ]
+  },
   async mounted() {
     try {
       await this.$store.dispatch("posts/fetchAllPosts");
