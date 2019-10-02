@@ -31,7 +31,10 @@ export const router = createRouter();
 function createRouter() {
   return new VueRouter({
     mode: "history",
-    routes
+    routes,
+    scrollBehavior() {
+      return { x: 0, y: 0 };
+    }
   });
 }
 
